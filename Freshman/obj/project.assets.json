@@ -8,23 +8,23 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "D:\\张灵顿\\vs2022\\tools\\NuGetPackages": {}
+    "C:\\Users\\DD\\.nuget\\packages\\": {},
+    "D:\\Visual Studio 2022\\tools\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\张灵顿\\MyDotnet\\Freshman\\Freshman.csproj",
+      "projectUniqueName": "d:\\MyDotnet\\Freshman\\Freshman.csproj",
       "projectName": "Freshman",
-      "projectPath": "D:\\张灵顿\\MyDotnet\\Freshman\\Freshman.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\张灵顿\\MyDotnet\\Freshman\\obj\\",
+      "projectPath": "d:\\MyDotnet\\Freshman\\Freshman.csproj",
+      "packagesPath": "C:\\Users\\DD\\.nuget\\packages\\",
+      "outputPath": "d:\\MyDotnet\\Freshman\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\张灵顿\\vs2022\\tools\\NuGetPackages"
+        "D:\\Visual Studio 2022\\tools\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DD\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

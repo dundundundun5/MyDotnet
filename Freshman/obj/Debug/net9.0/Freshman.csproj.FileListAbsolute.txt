@@ -12,3 +12,11 @@ D:\张灵顿\MyDotnet\Freshman\obj\Debug\net9.0\refint\Freshman.dll
 D:\张灵顿\MyDotnet\Freshman\obj\Debug\net9.0\Freshman.pdb
 D:\张灵顿\MyDotnet\Freshman\obj\Debug\net9.0\Freshman.genruntimeconfig.cache
 D:\张灵顿\MyDotnet\Freshman\obj\Debug\net9.0\ref\Freshman.dll
+D:\MyDotnet\Freshman\obj\Debug\net9.0\Freshman.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyDotnet\Freshman\obj\Debug\net9.0\Freshman.AssemblyInfoInputs.cache
+D:\MyDotnet\Freshman\obj\Debug\net9.0\Freshman.AssemblyInfo.cs
+D:\MyDotnet\Freshman\obj\Debug\net9.0\Freshman.csproj.CoreCompileInputs.cache
+D:\MyDotnet\Freshman\obj\Debug\net9.0\Freshman.sourcelink.json
+D:\MyDotnet\Freshman\obj\Debug\net9.0\Freshman.dll
+D:\MyDotnet\Freshman\obj\Debug\net9.0\refint\Freshman.dll
+D:\MyDotnet\Freshman\obj\Debug\net9.0\Freshman.pdb
