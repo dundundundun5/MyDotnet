@@ -1,0 +1,5 @@
+D:\MyDotnet\Release\dotnet9\SegmentationTest\SegmentationTest.exe
+D:\MyDotnet\Release\dotnet9\SegmentationTest\SegmentationTest.dll
+D:\MyDotnet\Release\dotnet9\SegmentationTest\SegmentationTest.deps.json
+D:\MyDotnet\Release\dotnet9\SegmentationTest\SegmentationTest.runtimeconfig.json
+D:\MyDotnet\Release\dotnet9\SegmentationTest\SegmentationTest.pdb

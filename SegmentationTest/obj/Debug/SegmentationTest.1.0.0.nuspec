@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SegmentationTest</id>
+    <version>1.0.0</version>
+    <authors>SegmentationTest</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="9aed20e6bf8fd065a74754537bf4eff32922a29d" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net8.0-windows7.0/knife_11801382_24x24.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="D:\MyDotnet\SegmentationTest\bin\Debug\net8.0-windows\SegmentationTest.runtimeconfig.json" target="lib\net8.0-windows7.0\SegmentationTest.runtimeconfig.json" />
+    <file src="D:\MyDotnet\SegmentationTest\bin\Debug\net8.0-windows\SegmentationTest.dll" target="lib\net8.0-windows7.0\SegmentationTest.dll" />
+    <file src="D:\MyDotnet\SegmentationTest\knife_11801382_24x24.ico" target="content\knife_11801382_24x24.ico" />
+    <file src="D:\MyDotnet\SegmentationTest\knife_11801382_24x24.ico" target="contentFiles\any\net8.0-windows7.0\knife_11801382_24x24.ico" />
+  </files>
+</package>
