@@ -12,9 +12,9 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\DD\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\DD\\.nuget\\packages",
-      "D:\\Visual Studio 2022\\tools\\NuGetPackages"
+      "C:\\Users\\Administrator\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Administrator\\.nuget\\packages",
+      "D:\\张灵顿\\vs2022\\tools\\NuGetPackages"
     ],
     "configProperties": {
       "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,

@@ -8,23 +8,23 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\DD\\.nuget\\packages\\": {},
-    "D:\\Visual Studio 2022\\tools\\NuGetPackages": {}
+    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "D:\\张灵顿\\vs2022\\tools\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyDotnet\\SegmentationTest\\SegmentationTest.csproj",
+      "projectUniqueName": "D:\\张灵顿\\切割测试\\MyDotnet\\SegmentationTest\\SegmentationTest.csproj",
       "projectName": "SegmentationTest",
-      "projectPath": "D:\\MyDotnet\\SegmentationTest\\SegmentationTest.csproj",
-      "packagesPath": "C:\\Users\\DD\\.nuget\\packages\\",
-      "outputPath": "D:\\MyDotnet\\SegmentationTest\\obj\\",
+      "projectPath": "D:\\张灵顿\\切割测试\\MyDotnet\\SegmentationTest\\SegmentationTest.csproj",
+      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "outputPath": "D:\\张灵顿\\切割测试\\MyDotnet\\SegmentationTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Visual Studio 2022\\tools\\NuGetPackages"
+        "D:\\张灵顿\\vs2022\\tools\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\DD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

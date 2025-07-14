@@ -7,10 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="dundun"
     Title="顿の切割测试"
-    Width="800"
-    Height="800"
+    
+    Width="1200"
+    Height="500"
     mc:Ignorable="d">
-    <Grid Margin="20" DataContext="{Binding ElementName=dundun}">
+    <Grid Margin="5" DataContext="{Binding ElementName=dundun}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -23,41 +24,61 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="0,0,0,10">
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="0,0,0,10" Grid.RowSpan="3">
             <TextBlock
                 x:Name="selectResult"
-                FontSize="18"
-                Text="{Binding SelectedItem, ElementName=stations, StringFormat='目前站点是{0}', TargetNullValue='未选择任何站点'}" />
+                FontSize="16"
+                Text="{Binding SelectedItem, ElementName=stations, StringFormat='目前站点是{0}', TargetNullValue='未选择任何站点'}" Margin="0,0,0,10"/>
             <ComboBox
                 x:Name="stations"
                 ItemsSource="{Binding StationList}"
                 SelectedItem="{x:Null}"
-                SelectionChanged="StationChanged" />
+                SelectionChanged="StationChanged" Margin="0,0,0,10" />
             <Button
                 x:Name="gatherLongButton"
                 Grid.Row="1"
-                Width="200"
-                Height="25"
+                Width="150"
+                Height="60"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="GatherLongClick"
-                Content="汇总今日长图"
-                IsEnabled="True"/>
+                Content="汇总车身左长图"
+                IsEnabled="True" Margin="0,0,0,10"/>
+            <Button
+                x:Name="gatherLocomotiveButton"
+                Grid.Row="1"
+                Width="150"
+                Height="60"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="GatherLocomotiveClick"
+                Content="汇总车头长图" 
+                IsEnabled="True" Margin="0,0,0,10"/>  
             <Button
                 x:Name="pickShortButton"
                 Grid.Row="1"
-                Width="200"
-                Height="25"
+                Width="150"
+                Height="60"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="PickShortClick"
-                Content="保留标记过的长图" 
-                IsEnabled="True"/>
+                Content="保留切错长图并获取短图" 
+                IsEnabled="True" Margin="0,0,0,10"/>
+            <Button
+                x:Name="ftpUploadButton"
+                Grid.Row="1"
+                Width="150"
+                Height="60"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="FtpUploadClick"
+                Content="FTP上传软件错误短图" 
+                IsEnabled="True" />
         </StackPanel>
 
         <TextBox
             x:Name="myConsole"
-            Grid.RowSpan="4"
+            Grid.RowSpan="5"
             Grid.Column="1"
             AcceptsReturn="True"
             AcceptsTab="True"
@@ -67,7 +88,7 @@
             Foreground="Black"
             HorizontalScrollBarVisibility="Auto"
             IsReadOnly="True"
-            TextWrapping="Wrap"
+            TextWrapping="NoWrap"
             VerticalScrollBarVisibility="Auto" />
 
 

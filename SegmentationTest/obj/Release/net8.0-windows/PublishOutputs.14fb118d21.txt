@@ -1,0 +1,5 @@
+D:\张灵顿\切割测试\MyDotnet\Release\dotnet9\SegmentationTest\SegmentationTest.exe
+D:\张灵顿\切割测试\MyDotnet\Release\dotnet9\SegmentationTest\SegmentationTest.dll
+D:\张灵顿\切割测试\MyDotnet\Release\dotnet9\SegmentationTest\SegmentationTest.deps.json
+D:\张灵顿\切割测试\MyDotnet\Release\dotnet9\SegmentationTest\SegmentationTest.runtimeconfig.json
+D:\张灵顿\切割测试\MyDotnet\Release\dotnet9\SegmentationTest\SegmentationTest.pdb

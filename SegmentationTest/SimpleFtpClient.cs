@@ -12,29 +12,35 @@ namespace SegmentationTest {
             _credentials = new NetworkCredential(username, password);
         }
 
-        public void UploadFile(string localFilePath, string remoteFilePath) {
+        public bool UploadFile(string localFilePath, string remoteFilePath) {
             var uri = new UriBuilder(_host) { Port = _port, Path = remoteFilePath }.Uri;
             using var client = new WebClient { Credentials = _credentials };
             try {
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
                 client.Encoding = Encoding.GetEncoding("GBK");
                 client.UploadFile(uri, WebRequestMethods.Ftp.UploadFile, localFilePath);
-                Console.WriteLine($"文件 {localFilePath} 上传到 {remoteFilePath} 成功");
+                //Console.WriteLine($"文件 {localFilePath} 上传到 {remoteFilePath} 成功");
+                return true;
             }
             catch (WebException ex) {
-                Console.WriteLine($"上传文件失败: {ex.Message}");
+                //Console.WriteLine($"上传文件失败: {ex.Message}");
+                return false;
             }
         }
 
-        public void DownloadFile(string remoteFilePath, string localFilePath) {
+        public bool DownloadFile(string remoteFilePath, string localFilePath) {
             var uri = new UriBuilder(_host) { Port = _port, Path = remoteFilePath }.Uri;
             using var client = new WebClient { Credentials = _credentials };
             try {
-                client.Encoding = Encoding.GetEncoding("GBK"); // 设置编码为UTF-
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+                client.Encoding = Encoding.GetEncoding("GBK"); // 设置编码为GBK
                 client.DownloadFile(uri, localFilePath);
-                Console.WriteLine($"文件 {remoteFilePath} 下载到 {localFilePath} 成功");
+                //Console.WriteLine($"文件 {remoteFilePath} 下载到 {localFilePath} 成功");
+                return true;
             }
             catch (WebException ex) {
-                Console.WriteLine($"下载文件失败: {ex.Message}");
+                //Console.WriteLine($"下载文件失败: {ex.Message}");
+                return false;
             }
         }
     }

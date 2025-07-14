@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>SegmentationTest</authors>
     <description>Package Description</description>
-    <repository type="git" commit="9aed20e6bf8fd065a74754537bf4eff32922a29d" />
+    <repository type="git" commit="2d3cb6ff831f1bdafe63e73519ecf2d0befd19b8" />
     <dependencies>
       <group targetFramework="net8.0-windows7.0" />
     </dependencies>
@@ -19,9 +19,9 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="D:\MyDotnet\SegmentationTest\bin\Debug\net8.0-windows\SegmentationTest.runtimeconfig.json" target="lib\net8.0-windows7.0\SegmentationTest.runtimeconfig.json" />
-    <file src="D:\MyDotnet\SegmentationTest\bin\Debug\net8.0-windows\SegmentationTest.dll" target="lib\net8.0-windows7.0\SegmentationTest.dll" />
-    <file src="D:\MyDotnet\SegmentationTest\knife_11801382_24x24.ico" target="content\knife_11801382_24x24.ico" />
-    <file src="D:\MyDotnet\SegmentationTest\knife_11801382_24x24.ico" target="contentFiles\any\net8.0-windows7.0\knife_11801382_24x24.ico" />
+    <file src="D:\张灵顿\切割测试\MyDotnet\SegmentationTest\bin\Debug\net8.0-windows\SegmentationTest.runtimeconfig.json" target="lib\net8.0-windows7.0\SegmentationTest.runtimeconfig.json" />
+    <file src="D:\张灵顿\切割测试\MyDotnet\SegmentationTest\bin\Debug\net8.0-windows\SegmentationTest.dll" target="lib\net8.0-windows7.0\SegmentationTest.dll" />
+    <file src="D:\张灵顿\切割测试\MyDotnet\SegmentationTest\knife_11801382_24x24.ico" target="content\knife_11801382_24x24.ico" />
+    <file src="D:\张灵顿\切割测试\MyDotnet\SegmentationTest\knife_11801382_24x24.ico" target="contentFiles\any\net8.0-windows7.0\knife_11801382_24x24.ico" />
   </files>
 </package>
