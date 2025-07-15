@@ -1,12 +1,13 @@
-D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\MainWindow.g.cs
-D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\App.g.cs
-D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\PickImages_MarkupCompile.cache
-D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\PickImages_MarkupCompile.lref
 D:\张灵顿\切割测试\MyDotnet\PickImages\bin\Debug\net8.0-windows\PickImages.exe
 D:\张灵顿\切割测试\MyDotnet\PickImages\bin\Debug\net8.0-windows\PickImages.deps.json
 D:\张灵顿\切割测试\MyDotnet\PickImages\bin\Debug\net8.0-windows\PickImages.runtimeconfig.json
 D:\张灵顿\切割测试\MyDotnet\PickImages\bin\Debug\net8.0-windows\PickImages.dll
 D:\张灵顿\切割测试\MyDotnet\PickImages\bin\Debug\net8.0-windows\PickImages.pdb
+D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\App.g.cs
+D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\PickImages_Content.g.cs
+D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\PickImages_MarkupCompile.cache
+D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\PickImages_MarkupCompile.lref
 D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\MainWindow.baml
 D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\PickImages.g.resources
 D:\张灵顿\切割测试\MyDotnet\PickImages\obj\Debug\net8.0-windows\PickImages.GeneratedMSBuildEditorConfig.editorconfig

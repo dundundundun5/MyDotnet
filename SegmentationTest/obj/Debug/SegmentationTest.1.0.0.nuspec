@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>SegmentationTest</authors>
     <description>Package Description</description>
-    <repository type="git" commit="2d3cb6ff831f1bdafe63e73519ecf2d0befd19b8" />
+    <repository type="git" commit="96aa1c64d3ef2600ac3cec81ed50522cc031c4f7" />
     <dependencies>
       <group targetFramework="net8.0-windows7.0" />
     </dependencies>

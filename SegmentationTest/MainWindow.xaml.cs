@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 using Clipboard = System.Windows.Clipboard;
 using ComboBox = System.Windows.Controls.ComboBox;
 using Path = System.IO.Path;
@@ -192,7 +193,7 @@ public partial class MainWindow : Window {
 
         string longHardwareImagePath = Path.Join(absolutePath, presentStation, longHardware);
         string longSoftwareImagePath = Path.Join(absolutePath, presentStation, longSoftware);
-        string shortHardwarePath = Path.Join(absolutePath, presentStation, shortHardware);
+        //string shortHardwarePath = Path.Join(absolutePath, presentStation, shortHardware);
         string shortSoftwarePath = Path.Join(absolutePath, presentStation, shortSoftware);
         string longImagePath = Path.Join(absolutePath, presentStation, gatheredImageFolder);
         string locomotiveImagePath = Path.Join(absolutePath, presentStation, onlyLocomotiveFolder);
@@ -200,13 +201,13 @@ public partial class MainWindow : Window {
             Directory.Delete(longSoftwareImagePath, true);
         if (!Directory.Exists(longHardwareImagePath))
             Directory.CreateDirectory(longHardwareImagePath);
-        if (Directory.Exists(shortHardwarePath))
-            Directory.Delete(shortHardwarePath, true);
+        //if (Directory.Exists(shortHardwarePath))
+        //    Directory.Delete(shortHardwarePath, true);
         if (Directory.Exists(shortSoftwarePath))
             Directory.Delete(shortSoftwarePath, true);
 
         Directory.CreateDirectory(longSoftwareImagePath);
-        Directory.CreateDirectory(shortHardwarePath);
+        //Directory.CreateDirectory(shortHardwarePath);
         Directory.CreateDirectory(shortSoftwarePath);
         foreach (string jpg in Directory.GetFiles(longImagePath)) {
             string[] parts = jpg.Split("+");
@@ -228,44 +229,47 @@ public partial class MainWindow : Window {
                 
         }
         AsyncWrite(c2t.box, $"删除完毕！\n");
-        // TODO GenerateCSV(longImagePath);
+        
         if (Directory.GetFiles(longImagePath).Length == 0) {
             AsyncWrite(c2t.box, $"切割全对！\n");
             return "";
         }
         string res = GenerateCSV(longImagePath);
         string[] files = Directory.GetFiles(longImagePath);
-        foreach (string jpg in files) {
+        for (int j = 0; j < files.Length; j++) {
+            string jpg = files[j];
             try {
+        
                 string[] parts = jpg.Split("\\")[^1].Split("+");
                 string errorDescription = parts[0]; // hxxx or sxx
                 if (errorDescription.ToLower().Contains("h")) {
-                    string shortImagePath = Path.Join(absolutePath, shortImageFolder, parts[1], parts[2]);
-                    string name = Path.Join(absolutePath, shortImageFolder, parts[1], parts[2], parts[3]);
-                    var imgs = Directory.GetFiles(shortImagePath);
-                    int idx = -1;
-                    for (int i = 0; i < imgs.Length; i++) {
-                        if (imgs[i].Contains(parts[3])) {
-                            idx = i;
-                            AsyncWrite(c2t.box, $"找到 {parts[3]} 在 {imgs[i]} index={idx}\n");
-                            break;
-                        }
-                    }
-                    if (idx == -1) {
-                        AsyncWrite(c2t.box, $"{jpg}的短图不存在或已过期，已跳过\n");
-                        File.Move(jpg, Path.Join(longHardwareImagePath, jpg.Split("\\")[^1]), true);
-                        continue;
-                    }
-                        
-                    
-                    if (idx >= 0) {
-                        for (int i = Math.Max(idx - 6, 0); i <= Math.Min(idx + 4, imgs.Length - 1); i++) {
-                            string temp = imgs[i].Split("\\")[^1];
-                            string dest = Path.Join(shortHardwarePath, temp);
-                            File.Copy(imgs[i], dest, true);
-                            AsyncWrite(c2t.box, $"copy {imgs[i]} -> {dest}\u2713\n");
-                        }
-                    }
+                    // hardware error do not fetch short image
+                    //string shortImagePath = Path.Join(absolutePath, shortImageFolder, parts[1], parts[2]);
+                    //string name = Path.Join(absolutePath, shortImageFolder, parts[1], parts[2], parts[3]);
+                    //var imgs = Directory.GetFiles(shortImagePath);
+                    //int idx = -1;
+                    //for (int i = 0; i < imgs.Length; i++) {
+                    //    if (imgs[i].Contains(parts[3])) {
+                    //        idx = i;
+                    //        AsyncWrite(c2t.box, $"找到 {parts[3]} 在 {imgs[i]} index={idx}\n");
+                    //        break;
+                    //    }
+                    //}
+                    //if (idx == -1) {
+                    //    AsyncWrite(c2t.box, $"{jpg}的短图不存在或已过期，已跳过\n");
+                    //    File.Move(jpg, Path.Join(longHardwareImagePath, jpg.Split("\\")[^1]), true);
+                    //    continue;
+                    //}
+
+
+                    //if (idx >= 0) {
+                    //    for (int i = Math.Max(idx - 6, 0); i <= Math.Min(idx + 4, imgs.Length - 1); i++) {
+                    //        string temp = imgs[i].Split("\\")[^1];
+                    //        string dest = Path.Join(shortHardwarePath, temp);
+                    //        File.Copy(imgs[i], dest, true);
+                    //        AsyncWrite(c2t.box, $"copy {imgs[i]} -> {dest}\u2713\n");
+                    //    }
+                    //}
                     File.Move(jpg, Path.Join(longHardwareImagePath, jpg.Split("\\")[^1]), true);
                 }
                 //software error
@@ -295,13 +299,10 @@ public partial class MainWindow : Window {
                     //int index = new List<string>(imgs).IndexOf(name);
                     if (idx >= 0) {
                         int start, end;
-                        if (jpg.Contains("-CS-")) {
-                            start = idx;
-                            end = Math.Min(idx + 8, imgs.Length - 1);
-                        } else {
-                            start = Math.Max(0, idx - 6);
-                            end = Math.Min(idx + 2, imgs.Length - 1);
-                        }
+                        
+                        start = Math.Max(0, idx - 4);
+                        end = Math.Min(idx + 6, imgs.Length - 1);
+                        
                         for (int i = start; i <= end; i++) {
                             string temp = imgs[i].Split("\\")[^1];
                             string dest = Path.Join(shortSoftwarePath, temp);
@@ -344,7 +345,7 @@ public partial class MainWindow : Window {
         }
 
 
-        AsyncWrite(c2t.box, $"CSV文件已生成：{csv}, 已复制到剪贴板\n");
+        //AsyncWrite(c2t.box, $"CSV文件已生成：{csv}, 已复制到剪贴板\n");
         return res;
     }
 
@@ -359,7 +360,7 @@ public partial class MainWindow : Window {
             try {
                 // 可能会抛出异常的代码
                 GatherLongImages();
-                //GatherLongImageOnlyLocomitive();
+                
             }
             catch (Exception ex) {
                 // 显示异常信息
@@ -384,19 +385,19 @@ public partial class MainWindow : Window {
             }
             catch (Exception ex) {
                 // 显示异常信息
-
-                //AsyncWrite(c2t.box, ex.ToString());
+                AsyncWrite(c2t.box, ex.ToString());
                 return;
             }
         });
-        if (res != "") {
-            Clipboard.SetText(res);
-            //Console.WriteLine("短图收集完成！csv已经复制到剪贴板！");
-            return;
+        // TODO 复制到剪贴板 但是Clipboard.SetText(res)会导致卡死
+        try {
+            Clipboard.SetDataObject(res);
+            
         }
-        //else
-        //    Console.WriteLine("可能有误，检查");
-
+        catch (Exception ex) {
+            Console.WriteLine($"复制到剪贴板出错:{ex.ToString()}");
+        }
+        Console.WriteLine($"信息已复制到剪贴板！");
     }
 
     private async void GatherLocomotiveClick(object sender, RoutedEventArgs e) {
@@ -421,6 +422,7 @@ public partial class MainWindow : Window {
     }
 
     private async void FtpUploadClick(object sender, RoutedEventArgs e) {
+        ftpUploadButton.IsEnabled = false;
         await Task.Run(() => {
             // 这里执行长时间运行的操作
             //print();
@@ -432,9 +434,15 @@ public partial class MainWindow : Window {
                 // 显示异常信息
 
                 AsyncWrite(c2t.box, $"{ex.ToString()}");
-                return;
+                //return;
             }
         });
+        int delay = 120;
+        for (int i = 0; i < delay; i++) {
+            AsyncWrite(c2t.box, $"================{delay - i}秒后关闭应用程序================\n");
+            await Task.Delay(1000);
+        }
+        System.Windows.Application.Current.Shutdown();  // 关闭应用程序
     }
 
     private void FtpUploadShortSoftwareImage() {
@@ -460,12 +468,15 @@ public partial class MainWindow : Window {
                     AsyncWrite(c2t.box, $"local.{jpg} upload failed\n");
                     continue;
                 }
-            } 
+            }
+            AsyncWrite(c2t.box, $"================FTP DONE================\n");
         }
         catch (Exception ex) {
             AsyncWrite(c2t.box, ex.ToString());
             return;
         }
+
+        
 
 
 

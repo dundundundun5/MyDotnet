@@ -1,0 +1,5 @@
+D:\张灵顿\切割测试\MyDotnet\PickImages\bin\Debug\net8.0-windows\publish\PickImages.exe
+D:\张灵顿\切割测试\MyDotnet\PickImages\bin\Debug\net8.0-windows\publish\PickImages.dll
+D:\张灵顿\切割测试\MyDotnet\PickImages\bin\Debug\net8.0-windows\publish\PickImages.deps.json
+D:\张灵顿\切割测试\MyDotnet\PickImages\bin\Debug\net8.0-windows\publish\PickImages.runtimeconfig.json
+D:\张灵顿\切割测试\MyDotnet\PickImages\bin\Debug\net8.0-windows\publish\PickImages.pdb

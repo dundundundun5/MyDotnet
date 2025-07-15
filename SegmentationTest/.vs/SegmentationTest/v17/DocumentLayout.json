@@ -59,8 +59,7 @@
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-07-13T00:59:54.074Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -70,7 +69,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "D:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\MyDotnet\\SegmentationTest\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAB4BAAAAAAAAAAAgwC8BAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAALIBAAAAAAAAAAAAALkBAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T00:59:49.351Z",
               "IsPinned": true,
@@ -93,6 +92,10 @@
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Console2Textbox.cs",
@@ -102,8 +105,7 @@
               "RelativeToolTip": "Console2Textbox.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T04:31:55.857Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-13T04:31:55.857Z"
             },
             {
               "$type": "Document",
@@ -113,8 +115,7 @@
               "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.301\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.TargetFrameworkInference.targets",
               "ViewState": "AgIAANkAAAAAAAAAAAAwwOUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-07-13T09:25:54.779Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-13T09:25:54.779Z"
             },
             {
               "$type": "Document",
@@ -124,8 +125,7 @@
               "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.301\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
               "ViewState": "AgIAAEIBAAAAAAAAAAAwwGABAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-07-13T09:22:55.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-13T09:22:55.986Z"
             },
             {
               "$type": "Document",
@@ -136,8 +136,7 @@
               "ToolTip": "D:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\MyDotnet\\SegmentationTest\\SegmentationTest.csproj",
               "RelativeToolTip": "SegmentationTest.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-13T08:44:31.591Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-13T08:44:31.591Z"
             },
             {
               "$type": "Document",
@@ -149,8 +148,7 @@
               "RelativeToolTip": "Dundun.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAUwBgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:18:06.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-13T05:18:06.047Z"
             },
             {
               "$type": "Document",
@@ -162,8 +160,7 @@
               "RelativeToolTip": "SimpleFtpClient.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:30:15.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-13T05:30:15.289Z"
             },
             {
               "$type": "Document",
@@ -185,12 +182,7 @@
               "RelativeToolTip": "AssemblyInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T01:02:56.061Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2025-07-13T01:02:56.061Z"
             }
           ]
         }

@@ -1,0 +1,5 @@
+D:\张灵顿\切割测试\MyDotnet\Release\dotnet9\PickImages\PickImages.exe
+D:\张灵顿\切割测试\MyDotnet\Release\dotnet9\PickImages\PickImages.dll
+D:\张灵顿\切割测试\MyDotnet\Release\dotnet9\PickImages\PickImages.deps.json
+D:\张灵顿\切割测试\MyDotnet\Release\dotnet9\PickImages\PickImages.runtimeconfig.json
+D:\张灵顿\切割测试\MyDotnet\Release\dotnet9\PickImages\PickImages.pdb
