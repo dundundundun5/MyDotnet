@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\MyDotnet\\PickImages\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B88C5749-9032-4F00-9B6E-B60C83C5E4D1}|PickImages.csproj|d:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\mydotnet\\pickimages\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B88C5749-9032-4F00-9B6E-B60C83C5E4D1}|PickImages.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B88C5749-9032-4F00-9B6E-B60C83C5E4D1}|PickImages.csproj|d:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\mydotnet\\pickimages\\console2textbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B88C5749-9032-4F00-9B6E-B60C83C5E4D1}|PickImages.csproj|solutionrelative:console2textbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B88C5749-9032-4F00-9B6E-B60C83C5E4D1}|PickImages.csproj|d:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\mydotnet\\pickimages\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B88C5749-9032-4F00-9B6E-B60C83C5E4D1}|PickImages.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B88C5749-9032-4F00-9B6E-B60C83C5E4D1}|PickImages.csproj|d:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\mydotnet\\pickimages\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -81,15 +81,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Console2Textbox.cs",
               "DocumentMoniker": "D:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\MyDotnet\\PickImages\\Console2Textbox.cs",
               "RelativeDocumentMoniker": "Console2Textbox.cs",
               "ToolTip": "D:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\MyDotnet\\PickImages\\Console2Textbox.cs",
               "RelativeToolTip": "Console2Textbox.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAkwA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T08:01:24.041Z"
+              "WhenOpened": "2025-07-14T08:01:24.041Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -100,17 +101,18 @@
               "ToolTip": "D:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\MyDotnet\\PickImages\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-14T07:36:13.861Z"
+              "WhenOpened": "2025-07-14T07:36:13.861Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\MyDotnet\\PickImages\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "D:\\\u5F20\u7075\u987F\\\u5207\u5272\u6D4B\u8BD5\\MyDotnet\\PickImages\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAANsAAAAAAAAAAAAkwN8AAABBAAAAAAAAAA==",
+              "ViewState": "AgIAADIBAAAAAAAAAIA1wC0BAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-14T07:36:13.732Z",
               "EditorCaption": ""

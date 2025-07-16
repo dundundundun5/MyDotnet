@@ -13,34 +13,100 @@ namespace SegmentationTest;
 /// Interaction logic for MainWindow.xaml
 /// </summary>
 public partial class MainWindow : Window {
+    /// <summary>
+    /// 图片的根路径
+    /// </summary>
     private const string absolutePath = @"D:\";
+    /// <summary>
+    /// 切割长图的源路径
+    /// </summary>
     private const string longImageFolder = "FTP2";
+    /// <summary>
+    /// 短图的源路径
+    /// </summary>
     private const string shortImageFolder = "Monitor";
+    /// <summary>
+    /// 车身左汇总的目标路径
+    /// </summary>
     private const string gatheredImageFolder = "long";
-    private const string avatarJpgName = "avatar.jpg";
-    private const string longHardware = "long_hardware", longSoftware = "long_software";
-    private const string shortHardware = "short_hardware", shortSoftware = "short_software";
+    /// <summary>
+    /// 所有车头汇总的目标路径
+    /// </summary>
     private const string onlyLocomotiveFolder = "locomotive";
+    /// <summary>
+    /// 顿顿头像的文件名
+    /// </summary>
+    private const string avatarJpgName = "avatar.jpg";
+    /// <summary>
+    /// 硬件错误、软件错误的长图归纳文件夹
+    /// </summary>
+    private const string longHardware = "long_hardware", longSoftware = "long_software";
+    /// <summary>
+    /// 硬件错误、软件错误的短图归纳文件夹
+    /// </summary>
+    private const string shortHardware = "short_hardware", shortSoftware = "short_software";
+    /// <summary>
+    /// FTP上传远程路径
+    /// </summary>
     private const string ftpRemotePath = "/个人文件夹/张灵顿/segment_test";
+    /// <summary>
+    /// 头像文件的修改时间的延后分钟数
+    /// </summary>
     private const int avatarTimeGap = 2;
+    /// <summary>
+    /// 将Console输出重定向到文本框实例
+    /// </summary>
     private Console2Textbox c2t;
+    /// <summary>
+    /// 无操作计时器
+    /// </summary>
+    private DispatcherTimer _inactivityTimer;
+    /// <summary>
+    /// 写死的站点名列表
+    /// </summary>
     public List<string> StationList { get; } = new List<string>() {
-        "伍明", "凤台", "包庄", "大许", "宁波", "建国", "新塘边", "杨集", "杭州", "枫泾", "泗安", "淮北北", "湾沚", "炮车", "虞城", "西寺坡", "誓节渡","李庄","姚李庙","杨楼","梓树庄","烔炀河"
+        "伍明", "凤台", "包庄", "大许", "宁波", "建国", "新塘边", "杨集", "杭州", "枫泾", "泗安", "淮北北", "湾沚", "炮车", "虞城", "西寺坡", "誓节渡","李庄","姚李庙","杨楼","梓树庄","烔炀河","东孝","白龙桥"
     };
+    /// <summary>
+    /// 当前站点的中文名
+    /// </summary>
     public string presentStation { get; set; } = new string("null");
+    /// <summary>
+    /// 当前的本地时间
+    /// </summary>
     public DateTime CurrentDate { get; private set; }
+    /// <summary>
+    /// 昨天的本地实际
+    /// </summary>
     public DateTime YesterdayDate { get; private set; }
-
+    /// <summary>
+    /// 主窗口构造函数
+    /// </summary>
     public MainWindow() {
 
         InitializeComponent();
         c2t = new Console2Textbox(myConsole);
         CheckPresentStation();
-
-
         InitializeDates();
+        StartInactivityTimer(180);
 
     }
+    /// <summary>
+    /// 在线程内输出文本到主窗口的文本框
+    /// </summary>
+    /// <param name="box">TextBox类实例</param>
+    /// <param name="text">要输出的文本</param>
+    private void AsyncWrite(TextBox box, string text) {
+        void Write(System.Windows.Controls.TextBox box, string text) {
+            box.AppendText(text);
+            box.ScrollToEnd();
+        }
+        Action<TextBox, String> updateAction = new Action<TextBox, string>(Write);
+        box.Dispatcher.BeginInvoke(updateAction, box, text);
+    }
+    /// <summary>
+    /// 查询是否存在D:\站点名的文件夹，有则锁定选项
+    /// </summary>
     private void CheckPresentStation() {
         for (int i = 0; i < StationList.Count(); i++) {
             if (Directory.Exists(Path.Join(absolutePath, StationList[i]))) {
@@ -50,14 +116,9 @@ public partial class MainWindow : Window {
             }
         }
     }
-    private void AsyncWrite(TextBox box, string text) {
-        void Write(System.Windows.Controls.TextBox box, string text) {
-            box.AppendText(text);
-            box.ScrollToEnd();
-        }
-        Action<TextBox, String> updateAction = new Action<TextBox, string>(Write);
-        box.Dispatcher.BeginInvoke(updateAction, box, text);
-    }
+    /// <summary>
+    /// 汇总昨日所有车身左的长图到./long
+    /// </summary>
     private void GatherLongImages() {
 
         string resultPath = Path.Join(absolutePath, presentStation, gatheredImageFolder);
@@ -106,7 +167,9 @@ public partial class MainWindow : Window {
 
 
     }
-    //TODO 把 每个相机的车头照片截取，多张车头照片-
+    /// <summary>
+    /// 汇总所有相机的车头长图到./locomotive
+    /// </summary>
     private void GatherLongImageOnlyLocomitive() {
         string resultPath = Path.Join(absolutePath, presentStation, onlyLocomotiveFolder);
         if (Directory.Exists(resultPath))
@@ -153,19 +216,11 @@ public partial class MainWindow : Window {
         AsyncWrite(c2t.box, $"如果站点选择错误，则将{resultPath}的{resultPath.Split('\\')[1]}手动改成实际站点名称\n");
         Process.Start("explorer.exe", resultPath);
     }
-    private void PathCheck() {
-
-        string joinedPath = Path.Join(absolutePath, presentStation);
-        if (Directory.Exists(joinedPath)) {
-            Console.WriteLine($"路径 {joinedPath} 存在");
-        }
-        else {
-            Console.WriteLine($"路径 {joinedPath} 并不存在，新建文件夹");
-            Console.WriteLine($"路径 {joinedPath} 创建成功");
-        }
-
-    }
-
+    /// <summary>
+    /// 通过选项框选择站点
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void StationChanged(object sender, SelectionChangedEventArgs e) {
         var box = (ComboBox)sender;
         var selected = box.SelectedItem;
@@ -175,25 +230,22 @@ public partial class MainWindow : Window {
             gatherLongButton.IsEnabled = true;
         }
     }
-
+    /// <summary>
+    /// 初始化日期
+    /// </summary>
     private void InitializeDates() {
         this.CurrentDate = DateTime.Today;
         this.YesterdayDate = CurrentDate.AddDays(-1);
         Console.WriteLine($"当前日期: {CurrentDate:yyyy-MM-dd}");
         Console.WriteLine($"切割测试日期: {YesterdayDate:yyyy-MM-dd}");
     }
-
-    // TODO 收集完长图以后才显示在左下角的textblock中，红色字体，大字
-    // TODO 简要阐明有问题的长图的标记规则
-    public void ShowRules() {
-
-    }
-
+    /// <summary>
+    /// 根据./long和./locomotive里留下的软件错误的长图找对应短图
+    /// </summary>
+    /// <returns>csv文件表示当前站点的测试明细</returns>
     private string PickShortImages() {
-
         string longHardwareImagePath = Path.Join(absolutePath, presentStation, longHardware);
         string longSoftwareImagePath = Path.Join(absolutePath, presentStation, longSoftware);
-        //string shortHardwarePath = Path.Join(absolutePath, presentStation, shortHardware);
         string shortSoftwarePath = Path.Join(absolutePath, presentStation, shortSoftware);
         string longImagePath = Path.Join(absolutePath, presentStation, gatheredImageFolder);
         string locomotiveImagePath = Path.Join(absolutePath, presentStation, onlyLocomotiveFolder);
@@ -201,13 +253,9 @@ public partial class MainWindow : Window {
             Directory.Delete(longSoftwareImagePath, true);
         if (!Directory.Exists(longHardwareImagePath))
             Directory.CreateDirectory(longHardwareImagePath);
-        //if (Directory.Exists(shortHardwarePath))
-        //    Directory.Delete(shortHardwarePath, true);
         if (Directory.Exists(shortSoftwarePath))
             Directory.Delete(shortSoftwarePath, true);
-
         Directory.CreateDirectory(longSoftwareImagePath);
-        //Directory.CreateDirectory(shortHardwarePath);
         Directory.CreateDirectory(shortSoftwarePath);
         foreach (string jpg in Directory.GetFiles(longImagePath)) {
             string[] parts = jpg.Split("+");
@@ -225,11 +273,9 @@ public partial class MainWindow : Window {
                 string newJpg = Path.Join(absolutePath, presentStation, gatheredImageFolder, name);
                 File.Move(jpg, newJpg, true);
                 AsyncWrite(c2t.box, $"{jpg} -> {newJpg}\n");
-            }
-                
+            }   
         }
         AsyncWrite(c2t.box, $"删除完毕！\n");
-        
         if (Directory.GetFiles(longImagePath).Length == 0) {
             AsyncWrite(c2t.box, $"切割全对！\n");
             return "";
@@ -239,37 +285,9 @@ public partial class MainWindow : Window {
         for (int j = 0; j < files.Length; j++) {
             string jpg = files[j];
             try {
-        
                 string[] parts = jpg.Split("\\")[^1].Split("+");
                 string errorDescription = parts[0]; // hxxx or sxx
                 if (errorDescription.ToLower().Contains("h")) {
-                    // hardware error do not fetch short image
-                    //string shortImagePath = Path.Join(absolutePath, shortImageFolder, parts[1], parts[2]);
-                    //string name = Path.Join(absolutePath, shortImageFolder, parts[1], parts[2], parts[3]);
-                    //var imgs = Directory.GetFiles(shortImagePath);
-                    //int idx = -1;
-                    //for (int i = 0; i < imgs.Length; i++) {
-                    //    if (imgs[i].Contains(parts[3])) {
-                    //        idx = i;
-                    //        AsyncWrite(c2t.box, $"找到 {parts[3]} 在 {imgs[i]} index={idx}\n");
-                    //        break;
-                    //    }
-                    //}
-                    //if (idx == -1) {
-                    //    AsyncWrite(c2t.box, $"{jpg}的短图不存在或已过期，已跳过\n");
-                    //    File.Move(jpg, Path.Join(longHardwareImagePath, jpg.Split("\\")[^1]), true);
-                    //    continue;
-                    //}
-
-
-                    //if (idx >= 0) {
-                    //    for (int i = Math.Max(idx - 6, 0); i <= Math.Min(idx + 4, imgs.Length - 1); i++) {
-                    //        string temp = imgs[i].Split("\\")[^1];
-                    //        string dest = Path.Join(shortHardwarePath, temp);
-                    //        File.Copy(imgs[i], dest, true);
-                    //        AsyncWrite(c2t.box, $"copy {imgs[i]} -> {dest}\u2713\n");
-                    //    }
-                    //}
                     File.Move(jpg, Path.Join(longHardwareImagePath, jpg.Split("\\")[^1]), true);
                 }
                 //software error
@@ -279,12 +297,7 @@ public partial class MainWindow : Window {
                     var imgs = Directory.GetFiles(shortImagePath);
                     int idx = -1;
                     for (int i = 0; i < imgs.Length; i++) {
-                        //if (imgs[i].Contains(parts[3])) {
-                        //    idx = i;
-                        //    AsyncWrite(c2t.box, $"找到 {parts[3]} 在 {imgs[i]} index={idx}\n");
-                        //    break;
-                        //}
-                        // 大于等
+                        /// 大于等
                         if (imgs[i].Split("\\")[^1].CompareTo(parts[3]) >= 0) {
                             idx = i;
                             AsyncWrite(c2t.box, $"找到 {parts[3]} 在 {imgs[i]} index={idx}\n");
@@ -296,13 +309,11 @@ public partial class MainWindow : Window {
                         File.Move(jpg, Path.Join(longSoftwareImagePath, jpg.Split("\\")[^1]), true);
                         continue;
                     }
-                    //int index = new List<string>(imgs).IndexOf(name);
                     if (idx >= 0) {
                         int start, end;
-                        
+                        //TODO 配置文件化
                         start = Math.Max(0, idx - 4);
                         end = Math.Min(idx + 6, imgs.Length - 1);
-                        
                         for (int i = start; i <= end; i++) {
                             string temp = imgs[i].Split("\\")[^1];
                             string dest = Path.Join(shortSoftwarePath, temp);
@@ -311,21 +322,20 @@ public partial class MainWindow : Window {
                         }
                     }
                     File.Move(jpg, Path.Join(longSoftwareImagePath, jpg.Split("\\")[^1]), true);
-
                 }
             }
             catch (Exception) {
-
                 AsyncWrite(c2t.box, $"{jpg}的短图不存在或已过期，已跳过\n");
                 continue;
             }
-
         }
         return res;
     }
-
-
-
+    /// <summary>
+    /// 生成测试明细csv
+    /// </summary>
+    /// <param name="longImagePath">留下长图的绝对路径</param>
+    /// <returns>csv字符串</returns>
     private string GenerateCSV(string longImagePath) {
         string res = "";
         string csv = $"{presentStation}CS{Dundun.Two(YesterdayDate.Month)}{Dundun.Two(YesterdayDate.Day)}.csv";
@@ -343,9 +353,6 @@ public partial class MainWindow : Window {
                 res += $"{errorTime},{orientation},{errorDescription},{filename}\n";
             }
         }
-
-
-        //AsyncWrite(c2t.box, $"CSV文件已生成：{csv}, 已复制到剪贴板\n");
         return res;
     }
 
@@ -353,26 +360,20 @@ public partial class MainWindow : Window {
         gatherLongButton.IsEnabled = false;
         stations.IsReadOnly = true;
         stations.IsEnabled = false;
-        PathCheck();
         await Task.Run(() => {
             // 这里执行长时间运行的操作
             //print();
             try {
                 // 可能会抛出异常的代码
                 GatherLongImages();
-                
             }
             catch (Exception ex) {
-                // 显示异常信息
-
                 AsyncWrite(c2t.box, $"{ex.ToString()}");
                 return;
             }
         });
         gatherLongButton.IsEnabled = false;
         pickShortButton.IsEnabled = true;
-
-
     }
     private async void PickShortClick(object sender, RoutedEventArgs e) {
         pickShortButton.IsEnabled = false;
@@ -392,14 +393,12 @@ public partial class MainWindow : Window {
         // TODO 复制到剪贴板 但是Clipboard.SetText(res)会导致卡死
         try {
             Clipboard.SetDataObject(res);
-            
         }
         catch (Exception ex) {
             Console.WriteLine($"复制到剪贴板出错:{ex.ToString()}");
         }
         Console.WriteLine($"信息已复制到剪贴板！");
     }
-
     private async void GatherLocomotiveClick(object sender, RoutedEventArgs e) {
 
 
@@ -420,7 +419,6 @@ public partial class MainWindow : Window {
         });
         gatherLocomotiveButton.IsEnabled = false;
     }
-
     private async void FtpUploadClick(object sender, RoutedEventArgs e) {
         ftpUploadButton.IsEnabled = false;
         await Task.Run(() => {
@@ -432,19 +430,11 @@ public partial class MainWindow : Window {
             }
             catch (Exception ex) {
                 // 显示异常信息
-
                 AsyncWrite(c2t.box, $"{ex.ToString()}");
-                //return;
+                return;
             }
         });
-        int delay = 120;
-        for (int i = 0; i < delay; i++) {
-            AsyncWrite(c2t.box, $"================{delay - i}秒后关闭应用程序================\n");
-            await Task.Delay(1000);
-        }
-        System.Windows.Application.Current.Shutdown();  // 关闭应用程序
     }
-
     private void FtpUploadShortSoftwareImage() {
         SimpleFtpClient ftp;
         string localPath = Path.Join(absolutePath, presentStation, shortSoftware);
@@ -481,6 +471,36 @@ public partial class MainWindow : Window {
 
 
 
+    }
+    private void StartInactivityTimer(int seconds) {
+        _inactivityTimer = new DispatcherTimer {
+            Interval = TimeSpan.FromSeconds(seconds) // 15秒无操作后触发
+        };
+        _inactivityTimer.Tick += (s, e) => CloseApplication();
+        _inactivityTimer.Start();
+
+        // 监听所有可能的用户输入事件
+        PreviewMouseMove += ResetTimerOnActivity;
+        PreviewKeyDown += ResetTimerOnActivity;
+        PreviewTouchDown += ResetTimerOnActivity;
+    }
+
+    // 用户有操作时重置计时器
+    /// <summary>
+    /// 计算两个数的和
+    /// </summary>
+    /// <param name="a">第一个数</param>
+    /// <param name="b">第二个数</param>
+    /// <returns>返回两个数的和</returns>
+    private void ResetTimerOnActivity(object sender, EventArgs e) {
+        _inactivityTimer.Stop();
+        _inactivityTimer.Start();
+    }
+
+    // 关闭应用程序
+    private void CloseApplication() {
+        _inactivityTimer.Stop();
+        System.Windows.Application.Current.Shutdown();
     }
 }
 

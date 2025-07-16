@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>PickImages</authors>
     <description>Package Description</description>
-    <repository type="git" commit="96aa1c64d3ef2600ac3cec81ed50522cc031c4f7" />
+    <repository type="git" commit="96f668fff083d724b3f31c8722056d696a575f1a" />
     <dependencies>
       <group targetFramework="net8.0-windows7.0" />
     </dependencies>

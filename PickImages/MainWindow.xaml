@@ -40,16 +40,7 @@
             HorizontalAlignment="Left"
             Click="OCRButton1_Click"
             Content="选择文件并找原图" />
-        <Button
-            x:Name="OCRButton2"
-            Grid.Row="1"
-            Grid.Column="1"
-            Width="190"
-            Height="40"
-            Margin="5"
-            HorizontalAlignment="Left"
-            Click="OCRButton2_Click"
-            Content="选择文件并找原图" />
+       
         <Button
             x:Name="DetectCSButton"
             Grid.Row="2"
@@ -76,15 +67,8 @@
             Height="20"
             Margin="10"
             IsReadOnly="True"
-            Text="======选择OCR识别错.txt=====" />
-        <TextBox
-            x:Name="OCRFile2"
-            Grid.Row="1"
-            Width="Auto"
-            Height="20"
-            Margin="10"
-            IsReadOnly="True"
-            Text="======选择OCR少框.txt======" />
+            Text="======选择站点名_日期XXX.csv=====" />
+        
         <TextBox
             x:Name="DetectCSFolder"
             Grid.Row="2"
